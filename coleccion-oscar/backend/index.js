@@ -28,10 +28,8 @@ app.get('/', function (req, res) {
 //llama al fichero login.js usando el método getUserData pasándole
 //el login (user) y la contraseña (password)
 app.post('/login', async function(req, res, next) {
-    console.log(req.body.username, req.body.password)
     try {
         res.json(await login.getUserData(req.body.username, req.body.password))
-        console.log("Jiuuuuuu")
     } catch (err) {
         console.error(`Error while getting data `, err.message);
         next(err)

@@ -37,10 +37,12 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Inicio de sesión exitoso:', data);
-      } else {
-        console.error('Credenciales incorrectas');
-      }
+        if (data === null){
+            console.error('Error en el inicio de sesión');
+        } else{
+          console.log('Inicio de sesión exitoso:', data);
+        }
+      } 
     } catch (error) {
       console.error('Error en la comunicación con el backend:', error);
     }
